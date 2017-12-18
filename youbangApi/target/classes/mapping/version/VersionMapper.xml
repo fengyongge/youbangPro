@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.common.version.mapper.VersionMapper" >
+  <resultMap id="BaseResultMap" type="com.test.common.version.model.Version" >
+    <constructor >
+      <arg column="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updateContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="AndroidAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.test.common.version.model.Version" >
+    insert into version (versionCode, updateContent, AndroidAddress
+      )
+    values (#{versionCode,jdbcType=VARCHAR}, #{updateContent,jdbcType=VARCHAR}, #{androidAddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select versionCode, updateContent, AndroidAddress
+    from version
+  </select>
+</mapper>

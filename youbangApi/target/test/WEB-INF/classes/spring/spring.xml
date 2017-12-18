@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+">
+	<!-- 引入属性文件 -->
+	<context:property-placeholder location="classpath:spring/properties/*.properties"  />
+	<!-- 自动扫描(自动注入) -->
+	<!-- <context:component-scan base-package="com.sdc.common" />   -->
+	<context:component-scan base-package="com.test" />
+
+	<bean id="springBeanFactoryUtils" class="com.test.system.spring.SpringBeanFactoryUtils"/>
+
+	<!--   <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+          <property name="locations">
+              <list>
+                  <value>classpath:spring/properties/test/mongo.properties</value>
+              </list>
+          </property>
+          <property name="ignoreUnresolvablePlaceholders" value="true" />
+      </bean> -->
+	<!--  <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+         <property name="properties" ref="configProperties" />
+     </bean>   -->
+
+	<!--     <context:property-placeholder location="classpath:spring/properties/const.properties" /> -->
+
+</beans>

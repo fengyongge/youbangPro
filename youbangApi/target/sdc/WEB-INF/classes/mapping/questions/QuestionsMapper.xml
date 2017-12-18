@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.common.questions.mapper.QuestionsMapper" >
+  <resultMap id="BaseResultMap" type="com.test.common.questions.model.Questions" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="created_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updated_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from questions
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.test.common.questions.model.Questions" useGeneratedKeys="true" keyProperty="id" >
+    insert into questions (user_id, title,
+      content, created_time, updated_time
+      )
+    values (#{user_id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR},
+      #{content,jdbcType=VARCHAR}, #{created_time,jdbcType=TIMESTAMP}, #{updated_time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.test.common.questions.model.Questions" >
+    update questions
+    set user_id = #{user_id,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      created_time = #{created_time,jdbcType=TIMESTAMP},
+      updated_time = #{updated_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, user_id, title, content, created_time, updated_time
+    from questions
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, user_id, title, content, created_time, updated_time
+    from questions
+  </select>
+
+
+  <select id="selectAllQuestions" resultType="java.util.HashMap" >
+
+    select id as question_id,user_id , title, content, created_time,
+    updated_time
+    from questions
+  </select>
+
+
+</mapper>

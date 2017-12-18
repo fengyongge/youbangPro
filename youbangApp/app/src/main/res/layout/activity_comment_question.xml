@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zzti.youbang.ui.CommentQuestionActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingTop="5dip">
+
+
+            <Button
+                android:id="@+id/btComment"
+                android:layout_width="55dip"
+                android:layout_height="35dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:text="发送"
+                android:textColor="@color/deep_grey"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dip"
+                android:layout_toLeftOf="@id/btComment"
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:paddingRight="36dip"
+                android:textColor="@color/deep_grey"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llNoResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/no_img" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="抱歉，暂无评论"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/lvComment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:divider="@null"
+            tools:listitem="@layout/activity_comment_question_item">
+
+        </ListView>
+
+    </FrameLayout>
+
+</LinearLayout>

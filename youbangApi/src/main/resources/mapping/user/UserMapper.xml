@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.common.user.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.test.common.user.model.User" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gender" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="des" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pic" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="created_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updated_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="is_delete" jdbcType="TINYINT" javaType="java.lang.Byte"/>
+
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, mobile, password, gender, des, pic
+    from user
+  </select>
+
+
+  <insert id="insert" parameterType="com.test.common.user.model.User" useGeneratedKeys="true" keyProperty="id" >
+    insert into user (name, mobile, password,
+    gender, des, pic,created_time,updated_time,is_delete)
+    values (#{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{gender,jdbcType=BIGINT}, #{des,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR},
+    #{created_time,jdbcType=TIMESTAMP}, #{updated_time,jdbcType=TIMESTAMP},
+    #{is_delete,jdbcType=TINYINT})
+  </insert>
+
+
+  <select id="selectByPrimaryKey" resultType="com.test.common.user.model.User" parameterType="java.lang.Long" >
+    select id, name, mobile, gender, des, pic
+    from user
+    where 1=1
+    AND id = #{id,jdbcType=BIGINT}
+    and is_delete=0
+  </select>
+
+
+  <select id="selectByparameter" resultType="com.test.common.user.model.User"  >
+    select id, name, mobile, password, gender, des, pic,created_time,updated_time,is_delete
+    from user
+    where 1=1
+    AND  mobile = #{mobile}
+    and is_delete=0
+  </select>
+
+
+  <update id="updateByPrimaryKey" parameterType="java.util.Map" >
+    update user
+    set name = #{name,jdbcType=VARCHAR},
+    mobile = #{mobile,jdbcType=VARCHAR},
+    password = #{password,jdbcType=VARCHAR},
+    gender = #{gender,jdbcType=BIGINT},
+    des = #{des,jdbcType=VARCHAR},
+    pic = #{pic,jdbcType=VARCHAR}
+    created_time = #{pic,jdbcType=TIMESTAMP}
+    update_time = #{pic,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+
+  <update id="updatePassword" parameterType="java.util.Map" >
+    update user
+    set password = #{password},
+    where id = #{id}
+  </update>
+
+
+</mapper>

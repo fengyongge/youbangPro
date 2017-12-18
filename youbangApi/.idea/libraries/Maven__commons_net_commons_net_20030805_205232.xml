@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: commons-net:commons-net:20030805.205232">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/20030805.205232/commons-net-20030805.205232.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/20030805.205232/commons-net-20030805.205232-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/20030805.205232/commons-net-20030805.205232-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

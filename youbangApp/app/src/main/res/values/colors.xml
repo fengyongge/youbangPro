@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="chenjin">#3b5be8</color>
+    <!-- -->
+    <color name="theme_color">#1e51b6</color>
+    <color name="white">#ffffff</color>
+    <color name="bottom_color">#F5F5F5</color>
+
+    <color name="bg_color">#f3f2f8</color>
+    <color name="view_color">#dddddd</color>
+    <color name="text_color">#333333</color>
+    <color name="gray">#919191</color>
+    <color name="red">#E83F52</color>
+
+    <color name="use_bg">#c39c6d</color>
+    <color name="un_use_bg">#ffa73d</color>
+
+    <color name="bj">#efeff4</color>
+
+    <color name="blue">#6d9eed</color>
+
+
+</resources>

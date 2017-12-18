@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+   
+    <classPathEntry location="mysql-connector-java-5.1.37.jar"/>
+  
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+		
+		<commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+			<property name="beginningDelimiter" value="`"/>
+            <property name="endingDelimiter" value="`"/>
+        </commentGenerator>
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://116.196.92.39:3306/test"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+
+
+		<javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--  生成Model类存放位置  -->
+        <javaModelGenerator targetPackage="com.test.common.version.model" targetProject="../../java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="constructorBased" value="true"/>
+        </javaModelGenerator>
+        <!--  生成映射文件存放位置  -->
+         <sqlMapGenerator targetPackage="mapping.version" targetProject="../../resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator> 
+        <!--  生成Dao类存放位置  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.test.common.version.mapper" targetProject="../../java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--  生成对应表及类名   -->
+        <table tableName="version"
+		       domainObjectName="Version"
+			   enableCountByExample="false" 
+			   enableUpdateByExample="false" 
+			   enableDeleteByExample="false" 
+			   enableSelectByExample="false" 
+			   selectByExampleQueryId="false"
+			   >
+	    <!-- <property name="rootClass" value="com.xijie.sdc.utils.BaseModel"/> -->
+	    <property name="rootInterface" value="com.test.utils.BaseMapper"/>
+	    <!-- 生成跟数据库字段一样的javaBean -->
+	    <property name="useActualColumnNames" value="true"/>
+	    <generatedKey column="id" sqlStatement="JDBC" />	   
+        <columnRenamingRule searchString="^D_"
+                                replaceString=""/>	   
+		
+	    </table>
+	    
+	    <table tableName="oauth2_client" 
+		       domainObjectName="Oauth2Client" 
+			   enableCountByExample="false" 
+			   enableUpdateByExample="false" 
+			   enableDeleteByExample="false" 
+			   enableSelectByExample="false" 
+			   selectByExampleQueryId="false"
+			   >
+	    <!-- <property name="rootClass" value="com.xijie.sdc.utils.BaseModel"/> -->
+	    <property name="rootInterface" value="com.test.utils.BaseMapper"/>
+	    <!-- 生成跟数据库字段一样的javaBean -->
+	    <property name="useActualColumnNames" value="true"/>
+	    <generatedKey column="id" sqlStatement="JDBC" />	   
+        <columnRenamingRule searchString="^D_"
+                                replaceString=""/>	   
+		
+	    </table>
+
+    </context>
+</generatorConfiguration>

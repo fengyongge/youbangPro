@@ -1,0 +1,46 @@
+-- youbang数据库    表、字段添加记录
+
+评论表 20170927 冯永阁
+CREATE TABLE `comment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `content` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `question_id` bigint(20) NOT NULL,
+  `created_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+问题表 20170927 冯永阁
+
+CREATE TABLE `questions` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `title` varchar(20000) CHARACTER SET utf8 DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `created_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+
+用户表 20170927 冯永阁
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `des` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `pic` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `created_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `is_delete` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+
+
+
